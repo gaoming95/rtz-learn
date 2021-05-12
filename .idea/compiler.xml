@@ -6,13 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="rtz-learn" />
         <module name="rtz-rabbitmq" />
+        <module name="rtz-querydsl" />
+        <module name="rtz-learn" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="rtz-querydsl" options="-parameters" />
       <module name="rtz-rabbitmq" options="-parameters" />
     </option>
   </component>

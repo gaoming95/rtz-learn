@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.4.5</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.gaoming</groupId>
+    <artifactId>rtz-querydsl</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>rtz-querydsl</name>
+    <description>Demo project for Spring Boot</description>
+    <properties>
+        <lombok.version>1.18.20</lombok.version>
+        <mysql.connector.java.version>8.0.23</mysql.connector.java.version>
+        <hikaricp.version>4.0.3</hikaricp.version>
+        <querydsl.version>4.4.0</querydsl.version>
+        <spring.jdbc.version>5.2.8.RELEASE</spring.jdbc.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.querydsl</groupId>
+            <artifactId>querydsl-sql</artifactId>
+            <version>${querydsl.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.querydsl</groupId>
+            <artifactId>querydsl-sql-spring</artifactId>
+            <version>${querydsl.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.querydsl</groupId>
+            <artifactId>querydsl-sql-codegen</artifactId>
+            <version>${querydsl.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.connector.java.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>${hikaricp.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.jdbc.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.querydsl</groupId>
+                <artifactId>querydsl-maven-plugin</artifactId>
+                <version>${querydsl.version}</version>
+                <configuration>
+                    <jdbcDriver>com.mysql.cj.jdbc.Driver</jdbcDriver>
+                    <jdbcUrl>jdbc:mysql://localhost:3306/boke?useUnicode=true&amp;characterEncoding=UTF-8</jdbcUrl>
+                    <jdbcUser>root</jdbcUser>
+                    <jdbcPassword>root</jdbcPassword>
+                    <exportForeignKeys>false</exportForeignKeys>
+                    <sourceFolder>${project.basedir}/src/main/resources</sourceFolder>
+                    <targetFolder>${project.basedir}/src/main/java</targetFolder>
+                    <exportBeans>true</exportBeans>
+                    <packageName>com.gaoming.rtz.querydsl.dao.query</packageName>
+                    <beanPackageName>com.gaoming.rtz.querydsl.dao.entity</beanPackageName>
+                    <beanSuffix>Do</beanSuffix>
+                    <beanAddToString>true</beanAddToString>
+                    <tableNamePattern>sys_role</tableNamePattern>
+                    <beanInterfaces>
+                        <beanInterface>java.io.Serializable</beanInterface>
+                    </beanInterfaces>
+                    <!-- 使用更习惯的类型 -->
+                    <numericMappings>
+                        <numericMapping>
+                            <total>1</total>
+                            <decimal>0</decimal>
+                            <javaType>java.lang.Integer</javaType>
+                        </numericMapping>
+                        <numericMapping>
+                            <total>2</total>
+                            <decimal>0</decimal>
+                            <javaType>java.lang.Integer</javaType>
+                        </numericMapping>
+                        <numericMapping>
+                            <total>3</total>
+                            <decimal>0</decimal>
+                            <javaType>java.lang.Integer</javaType>
+                        </numericMapping>
+                        <numericMapping>
+                            <total>4</total>
+                            <decimal>0</decimal>
+                            <javaType>java.lang.Integer</javaType>
+                        </numericMapping>
+                        <numericMapping>
+                            <total>5</total>
+                            <decimal>0</decimal>
+                            <javaType>java.lang.Integer</javaType>
+                        </numericMapping>
+                        <numericMapping>
+                            <total>6</total>
+                            <decimal>0</decimal>
+                            <javaType>java.lang.Integer</javaType>
+                        </numericMapping>
+                    </numericMappings>
+                </configuration>
+                <dependencies>
+                    <!--数据库对应的驱动包-->
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>${mysql.connector.java.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
